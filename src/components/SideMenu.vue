@@ -23,16 +23,14 @@
               @start="drag = true"
               @end="drag = false"
             >
-              <transition-group>
-                <LegendItem
-                  v-for="item in legend"
-                  class="legend__item"
-                  :key="item.group_id"
-                  :color="item.color"
-                  :text="item.text"
-                  :counter="item.counter"
-                />
-              </transition-group>
+              <LegendItem
+                v-for="item in legend"
+                class="legend__item"
+                :key="item.group_id"
+                :color="item.color"
+                :text="item.text"
+                :counter="item.counter"
+              />
             </draggable>
           </div>
           <span v-else class="legend--empty">Список пуст </span>
@@ -96,6 +94,7 @@ export default {
       if (!this.isUserOpened) return;
 
       this.$emit("outside");
+      this.$nextTick(() => this.drawChart());
     },
 
     closeProfile() {

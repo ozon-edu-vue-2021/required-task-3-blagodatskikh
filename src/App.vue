@@ -52,7 +52,7 @@ export default {
 
   methods: {
     onClickOutside() {
-      this.isUserOpened = null;
+      this.isUserOpened = false;
       this.selectedPlace = null;
       this.person = null;
     },
